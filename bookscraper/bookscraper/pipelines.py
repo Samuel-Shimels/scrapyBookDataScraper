@@ -29,14 +29,14 @@ class BookscraperPipeline:
             adapter[lowercase_key] = value.lower() 
 
         ## Price --> convert to float
-        price_keys = ['price', 'price_excl_tax', 'price_incl_tax', 'tax']
+        price_keys = ['price_excl_tax', 'price_incl_tax', 'tax']
         for price_key in price_keys:
-            if len(adapter.get(price_key)) > 2:
+            #if len(adapter.get(price_key)) > 2:
                 value = adapter.get(price_key)
                 value = value.replace('£', '')
                 adapter[price_key] = float(value)
-            else:
-                adapter[price_key] = 0
+            #else:
+                #adapter[price_key] = 0
 
 
         ## Availability --> extract number of books in stock
